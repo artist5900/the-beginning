@@ -3,6 +3,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://artist5900.github.io',
-  base: '/the-beginning',
+  site: process.env.URL || 'https://artist5900.github.io',
+  base: process.env.NETLIFY ? '/' : (process.env.DEPLOY_TARGET === 'gh-pages' ? '/the-beginning' : '/'),
 });
